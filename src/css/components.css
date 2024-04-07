@@ -1,0 +1,28 @@
+.newGame{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newGame button{
+    padding: 10px;
+    background-color: rgb(15, 102, 19);
+    cursor: pointer;
+    color:white;
+}
+
+.newGame .form-ctn{
+    display: flex;
+    padding: 50px;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.form-ctn .wrapper{
+    padding-right: 10px;
+}
+
+/* Error Message */
+.errorMsg {
+    color: red;
+}
