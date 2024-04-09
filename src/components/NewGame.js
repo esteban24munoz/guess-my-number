@@ -1,5 +1,7 @@
 import React, {useState} from "react";
-import '../css/components.css'
+import '../css/components.css';
+import GuessForm from "./GuessForm";
+
 
 const NewGame = () =>{
 
@@ -8,19 +10,24 @@ const NewGame = () =>{
 
 
   function maxSetter(e){
+
     return setMaxNum(e.target.value);
   }
 
   function maxNumHandler(e) {
-    e.preventDefault(); // Prevent default form submission behavio
+    let validInput = false;
+    e.preventDefault(); // Prevent default form submission behavior
 
     // validate user input
     if(isNaN(maxNum)){
       setErrorMsg('Maximum must be an integer');
+
     }
     else{
       if(maxNum > 10 && maxNum < 1000000){
-        setErrorMsg('approved');
+        setMaxNum(e.target.value);
+        return validInput = true;
+        
       }
       else{
         setErrorMsg('Maximum must be between 10 and 1,000,000');
@@ -28,7 +35,9 @@ const NewGame = () =>{
     }
   };
   
+
   return(
+
     <div className="newGame">
       <h1>Guess Number Game</h1>
         <form>
@@ -37,7 +46,7 @@ const NewGame = () =>{
                     <label for="maximun">Maximun: </label>
                     <input type="text" id="maximun" value={maxNum} onChange={maxSetter} autoFocus></input>
                 </div>
-                <button onClick={maxNumHandler}>{maxNum}</button>
+                <button onClick={maxNumHandler}>Enter</button>
             </div>
             <div className="errorMsg">
               <p>
@@ -46,6 +55,7 @@ const NewGame = () =>{
             </div>
         </form>
     </div>
+
   );
 };
 
