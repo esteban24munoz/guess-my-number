@@ -36,7 +36,7 @@ const NewGame = ({validInput, setMaxNum, maxNum}) =>{
     <div className="newGame">
       <h1>Guess Number Game</h1>
         <form>
-            <div className="form-ctn">
+            <div className="input-ctn">
                 <div className="wrapper">
                     <label for="maximun">Maximun: </label>
                     <input type="text" id="maximun" value={maxNum} onChange={maxSetter} autoFocus></input>
@@ -44,7 +44,6 @@ const NewGame = ({validInput, setMaxNum, maxNum}) =>{
                 <button onClick={maxNumHandler}>Enter</button>
             </div>
             <div className="errorMsg">
-              {maxNum}
               <p>
               {errorMsg}
               </p>

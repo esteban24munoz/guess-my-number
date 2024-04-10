@@ -1,28 +1,41 @@
-.newGame{
+.newGame, .GuessForm{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
-.newGame button{
+.newGame h1 {
+    color: rgb(194, 65, 250);
+}
+
+.newGame button, .GuessForm button{
     padding: 10px;
     background-color: rgb(15, 102, 19);
     cursor: pointer;
     color:white;
 }
 
-.newGame .form-ctn{
+.newGame .input-ctn, .GuessForm .input-ctn{
     display: flex;
-    padding: 50px;
     justify-content: space-around;
     text-align: center;
 }
 
-.form-ctn .wrapper{
+.input-ctn .wrapper{
     padding-right: 10px;
 }
 
 /* Error Message */
 .errorMsg {
     color: red;
+    text-align: center;
+    font-size: clamp(15px, 5vw, 20px);
+
+}
+
+.resultsTable {
+    font-size: clamp(14px, 100%, 25px);
+    justify-content: space-around;
+    display: flex;
 }

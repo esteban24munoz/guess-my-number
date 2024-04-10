@@ -19,16 +19,18 @@ const GuessForm = ({setIsPlaying, maxNum, secretNum}) =>{
       e.preventDefault();
 
       if(isNaN(currentGuess)){
-        setErrorMsg('Maximum must be an integer');
+        return setErrorMsg('Maximum must be an integer');
       }
       else{
         //push currentGuess into array
         setGuessList([...guessList, currentGuess]);
       }
+
+      setErrorMsg('');
     }
 
     return(
-      <div className="NewGame">
+      <div className="GuessForm">
 
         {hasWon ? <WinResults setIsPlaying={setIsPlaying} guessList={guessList}/> 
         
@@ -36,22 +38,22 @@ const GuessForm = ({setIsPlaying, maxNum, secretNum}) =>{
         <>
           <h1>Guess a number between 1 and {maxNum}</h1>
             <form>
-                <div className="form-ctn">
+                <div className="input-ctn">
                     <div className="wrapper">
                         <label for="maximun">Guess: </label>
                         <input type="text" id="maximun" value={currentGuess} onChange={guessSetter} autoFocus></input>
                     </div>
                     <button onClick={checkGuess}>Guess</button>
                 </div>
-                <div>Secret Num: {secretNum}</div>
                 <div className="errorMsg">
-                {maxNum}
                   <p>
                     {errorMsg}
                   </p>
                 </div>
-                <div className="errorMsg">
-                    <ResultsTable guessList={guessList} currentGuess={currentGuess} secretNum={secretNum} setHasWon={setHasWon}/>
+                <div className="resultsTable">
+                    <ol reversed>
+                      <ResultsTable guessList={guessList} currentGuess={currentGuess} secretNum={secretNum} setHasWon={setHasWon}/>
+                    </ol>
                 </div>
             </form>
         </>
