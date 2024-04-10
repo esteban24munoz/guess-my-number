@@ -3,19 +3,14 @@ import '../css/components.css';
 import GuessForm from "./GuessForm";
 
 
-const NewGame = () =>{
-
-  let [maxNum, setMaxNum] = useState("100");
+const NewGame = ({validInput, setMaxNum, maxNum}) =>{
   let [errorMsg, setErrorMsg] = useState("");
 
-
   function maxSetter(e){
-
     return setMaxNum(e.target.value);
   }
 
   function maxNumHandler(e) {
-    let validInput = false;
     e.preventDefault(); // Prevent default form submission behavior
 
     // validate user input
@@ -25,8 +20,8 @@ const NewGame = () =>{
     }
     else{
       if(maxNum > 10 && maxNum < 1000000){
-        setMaxNum(e.target.value);
-        return validInput = true;
+        setMaxNum(maxNum);
+        validInput(true);
         
       }
       else{
@@ -49,6 +44,7 @@ const NewGame = () =>{
                 <button onClick={maxNumHandler}>Enter</button>
             </div>
             <div className="errorMsg">
+              {maxNum}
               <p>
               {errorMsg}
               </p>
