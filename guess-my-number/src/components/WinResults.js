@@ -1,7 +1,6 @@
 import React from 'react'
 import App from "../App";
 
-
 const WinResults = ({setIsPlaying, guessList}) => {
     return(
         <div>
