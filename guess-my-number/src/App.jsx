@@ -15,7 +15,7 @@ function App() {
 
   const secretNum = () =>{
     //w3school https://www.w3schools.com/js/js_random.asp
-    return Math.floor(Math.random() * getMaxNum());
+    return Math.floor(Math.random() * getMaxNum()) + 1;
   }
 
   return (
